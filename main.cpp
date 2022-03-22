@@ -101,16 +101,16 @@ int main(){
     	}
     }
 
-    multimap<int, char> temp_hsh;
+    multimap<int, char> rev_hsh;
     for(auto &i : hsh){
-    	cout << i.first << " " << i.second << nln;
-    	temp_hsh.insert({i.second, i.first});
+    	// cout << i.first << " " << i.second << nln;
+    	rev_hsh.insert({i.second, i.first});
     }
 
-    vector<char> min_wise_char;
-    for(auto &i : temp_hsh){
-    	min_wise_char.pb(i.second);
+    for(auto &i : rev_hsh){
+    	cout << i.first << " " << i.second << nln;
     }
+
 
 
 
