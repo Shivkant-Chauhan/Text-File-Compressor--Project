@@ -41,12 +41,6 @@ class TreeNode{
 		delete right;	//not automatically executed as all nodes are dynamically allocated.
 	}
 
-	void insert(T data){
-		
-
-		
-	}
-
 };
 
 
@@ -91,7 +85,6 @@ int main(){
 //------------------------------------------------------------------------------------
     //instead of this how can i use min priority queue...?
 
-
     map<char, int> hsh;
     for(int i = 0; i < input.size(); i++){
     	string temp = input[i];
@@ -101,23 +94,47 @@ int main(){
     	}
     }
 
+
     multimap<int, char> rev_hsh;
     for(auto &i : hsh){
     	// cout << i.first << " " << i.second << nln;
     	rev_hsh.insert({i.second, i.first});
     }
 
-    for(auto &i : rev_hsh){
-    	cout << i.first << " " << i.second << nln;
-    }
-
-
-
+    // for(auto &i : rev_hsh){
+    // 	cout << i.first << " " << i.second << nln;
+    // }
 
     //instead of this how can i use min priority queue...?
 //------------------------------------------------------------------------------------
 
+    int k = 0;
+    char x;
 
+    while(rev_hsh.size() != 1){
+    	// TreeNode<char> parent, leftCh, rightCh;
+    	auto iter = rev_hsh.begin();
+    	auto min1 = iter;
+    	auto min2 = ++iter;
+
+
+    	x = '$' + k;
+    	TreeNode<char>* parent = new TreeNode<char>(x);
+    	TreeNode<char>* leftCh = new TreeNode<char>(min1->ff);
+    	TreeNode<char>* rightCh = new TreeNode<char>(min2->ff);
+
+    	parent->left = leftCh;
+    	parent->right = rightCh;
+
+
+    	rev_hsh.ins({(min1->ff + min2->ff), x});
+    	k++;
+    	rev_hsh.erase(min1);
+    	rev_hsh.erase(min2);
+
+    }
+
+	// cout << rev_hsh.begin()->ff;
 
 
 
