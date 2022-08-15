@@ -2,3 +2,6 @@ some random file data.
 abaaabaxaxcaaaan...
 huffman encoding project for compressing the size of text files.
 how to set size of the particular character as 1bit so as to do compression..????
+hi there this is Shivkant Chauhan!
+
+now the huffman encodings are working!
